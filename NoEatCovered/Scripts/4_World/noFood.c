@@ -112,19 +112,20 @@ class NoEatConfig
 
   string GenerateConfigJson()
 {
-    string output = "{ \"ConfigUpdateRate\": " + ConfigUpdateRate.ToString() + ", \"AllowedHelmets\": [";
+    StringBuilder output = new StringBuilder();
+    output.Append("{ \"ConfigUpdateRate\": ").Append(ConfigUpdateRate.ToString()).Append(", \"AllowedHelmets\": [");
 
     for (int i = 0; i < AllowedHelmets.Count(); i++)
     {
-        output += "\"" + AllowedHelmets.Get(i) + "\"";
+        output.Append("\"").Append(AllowedHelmets.Get(i)).Append("\"");
         if (i < AllowedHelmets.Count() - 1)
         {
-            output += ", ";
+            output.Append(", ");
         }
     }
 
-    output += "] }";
-    return output;
+    output.Append("] }");
+    return output.ToString();
 }
 
 }
