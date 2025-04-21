@@ -20,7 +20,7 @@ class CfgMods
 	class NoEatCovered
 	{
 		
-		author="NotYes555";
+		author="Artyfox";
 		type="mod";
 		dependencies[]=
 		{
