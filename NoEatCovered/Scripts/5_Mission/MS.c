@@ -4,10 +4,22 @@ modded class MissionServer
 
     void MissionServer()
     {
-        Print("•-    NoEatCovered MOD LOADED   -•");
+        Print("ï¿½-    NoEatCovered MOD LOADED   -ï¿½");
 
-        // Initialize the NoEatConfig instance
+        // Initialize and check NoEatConfig
         Config = new NoEatConfig();
-        Print("[NoEatConfig] Initialized on server startup.");
+        if (Config.Initialize())
+        {
+            Print("[MissionServer] NoEatConfig successfully loaded and initialized.");
+        }
+        else
+        {
+            Print("[MissionServer] Failed to initialize NoEatConfig. Default config created.");
+        }
+    }
+
+    static ref NoEatConfig GetConfig()
+    {
+        return Config;
     }
 }
